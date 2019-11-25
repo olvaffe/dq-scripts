@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+	adb -s 88LX01KRR shell input tap 600 1700
+	sleep 5
+done

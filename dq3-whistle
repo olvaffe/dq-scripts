@@ -1,0 +1,47 @@
+#!/bin/sh
+
+MENU="900 1500"
+SPELL="850 1700"
+WHISTLE="700 1150"
+FIGHT="600 1700"
+CONFIRM=$FIGHT
+
+tap() {
+	adb shell input swipe $1 $2 $1 $2 100
+	sleep 0.3
+}
+
+whistle() {
+	tap $MENU
+	tap $SPELL
+	tap $WHISTLE
+	tap $CONFIRM
+}
+
+fight() {
+	tap $CONFIRM
+	tap $CONFIRM
+	sleep 3
+	tap $FIGHT
+	sleep 15
+}
+
+end_fight() {
+	tap $CONFIRM
+	tap $CONFIRM
+	tap $CONFIRM
+	tap $CONFIRM
+}
+
+while true; do
+	echo -n "whistle/"
+	whistle
+	sleep 2
+
+	echo -n "fight/"
+	fight
+
+	echo "end"
+	end_fight
+	sleep 2
+done
