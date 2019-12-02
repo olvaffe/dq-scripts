@@ -1,9 +1,9 @@
 #!/bin/sh
 
-MENU="900 1500"
+MENU="950 1550"
 SPELL="850 1700"
 WHISTLE="700 1650"
-FIGHT="600 1700"
+FIGHT="650 1750"
 CONFIRM=$FIGHT
 
 tap() {
@@ -16,24 +16,26 @@ whistle() {
 	tap $SPELL
 	tap $WHISTLE
 	tap $CONFIRM
+	sleep 2
 }
 
 fight() {
-	for i in `seq 10`; do
-		tap $CONFIRM
-		tap $CONFIRM
-		tap $CONFIRM
-		tap $CONFIRM
+	for i in `seq 8`; do
+		tap $FIGHT
+		tap $FIGHT
+		tap $FIGHT
+		tap $FIGHT
 		sleep 2
 	done
 }
 
+round=1
 while true; do
-	echo -n "whistle/"
-	whistle
-	sleep 2
+	echo -n "round $round: "
+	date +%H:%M:%S
 
-	echo "fight"
+	whistle
 	fight
-	sleep 2
+
+	round=$((round + 1))
 done
