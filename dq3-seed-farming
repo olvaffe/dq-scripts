@@ -2,7 +2,7 @@
 
 MENU="900 1500"
 SPELL="850 1700"
-WHISTLE="700 1150"
+WHISTLE="700 1650"
 FIGHT="600 1700"
 CONFIRM=$FIGHT
 
@@ -19,18 +19,13 @@ whistle() {
 }
 
 fight() {
-	tap $CONFIRM
-	tap $CONFIRM
-	sleep 3
-	tap $FIGHT
-	sleep 15
-}
-
-end_fight() {
-	tap $CONFIRM
-	tap $CONFIRM
-	tap $CONFIRM
-	tap $CONFIRM
+	for i in `seq 10`; do
+		tap $CONFIRM
+		tap $CONFIRM
+		tap $CONFIRM
+		tap $CONFIRM
+		sleep 2
+	done
 }
 
 while true; do
@@ -38,10 +33,7 @@ while true; do
 	whistle
 	sleep 2
 
-	echo -n "fight/"
+	echo "fight"
 	fight
-
-	echo "end"
-	end_fight
 	sleep 2
 done
