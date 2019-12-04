@@ -1,0 +1,25 @@
+#!/bin/sh
+
+ITEM="700 1100"
+YES="500 1450"
+CONFIRM=$YES
+
+tap() {
+	adb shell input swipe $1 $2 $1 $2 100
+	sleep 0.3
+}
+
+LOOP=$1
+
+for i in `seq $LOOP`; do
+	tap $ITEM
+	sleep 0.5
+	tap $YES
+	sleep 0.5
+	tap $CONFIRM
+	sleep 0.5
+	tap $YES
+	sleep 0.5
+	tap $CONFIRM
+	sleep 0.5
+done

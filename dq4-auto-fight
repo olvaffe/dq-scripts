@@ -1,9 +1,10 @@
 #!/bin/sh
 
-MENU="950 1550"
-SPELL="850 1700"
-WHISTLE="700 1150"
-FIGHT="650 1750"
+MENU="100 1350"
+SPELL="800 1550"
+WHISTLE="800 1550"
+USE="700 1400"
+FIGHT="800 1550"
 CONFIRM=$FIGHT
 
 tap() {
@@ -15,6 +16,7 @@ whistle() {
 	tap $MENU
 	tap $SPELL
 	tap $WHISTLE
+	tap $USE
 	tap $CONFIRM
 	sleep 2
 }
