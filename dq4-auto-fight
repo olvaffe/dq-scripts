@@ -1,10 +1,10 @@
 #!/bin/sh
 
 MENU="100 1350"
-SPELL="800 1550"
-WHISTLE="800 1550"
+SPELL="950 1450"
+WHISTLE="550 1550"
 USE="700 1400"
-FIGHT="800 1550"
+FIGHT="400 1550"
 CONFIRM=$FIGHT
 
 tap() {
@@ -18,11 +18,11 @@ whistle() {
 	tap $WHISTLE
 	tap $USE
 	tap $CONFIRM
-	sleep 2
+	sleep 5
 }
 
 fight() {
-	for i in `seq 8`; do
+	for i in `seq 10`; do
 		tap $FIGHT
 		tap $FIGHT
 		tap $FIGHT
