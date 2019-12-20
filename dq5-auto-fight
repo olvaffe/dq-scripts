@@ -25,7 +25,7 @@ whistle() {
 }
 
 fight() {
-	for i in `seq 15`; do
+	for i in `seq 12`; do
 		tap $FIGHT
 		tap $FIGHT
 		tap $FIGHT
