@@ -1,6 +1,8 @@
 #!/bin/sh
 
+START="800 1700"
+
 while true; do
-	adb shell input tap 800 1700
+	adb shell input tap $START
 	sleep 1
 done

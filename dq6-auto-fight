@@ -1,0 +1,48 @@
+#!/bin/sh
+
+MENU="100 1350"
+SPELL="900 1550"
+NEXT1="200 1950"
+NEXT2="950 1800"
+WHISTLE="750 1150"
+USE="750 1400"
+FIGHT="300 1600"
+CONFIRM=$FIGHT
+
+tap() {
+	adb shell input tap $1 $2
+	sleep 0.4
+}
+
+whistle() {
+	tap $MENU
+	tap $SPELL
+	tap $NEXT1
+	tap $NEXT2
+	tap $WHISTLE
+	tap $USE
+	tap $USE
+	tap $CONFIRM
+	sleep 4
+}
+
+fight() {
+	for i in `seq 10`; do
+		tap $FIGHT
+		tap $FIGHT
+		tap $FIGHT
+		tap $FIGHT
+		sleep 2
+	done
+}
+
+round=1
+while true; do
+	echo -n "round $round: "
+	date +%H:%M:%S
+
+	whistle
+	fight
+
+	round=$((round + 1))
+done
